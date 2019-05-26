@@ -43,10 +43,12 @@
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-					
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.value }}
+						<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.text }}
+					    <br />
+						<input type="checkbox" ng-click="deleteTodo(todo._id)">余额： {{ todo.value }}
 					</label>
+					<br />
+					<br />
 				</div>
 
 				<p class="text-center" ng-show="loading">
