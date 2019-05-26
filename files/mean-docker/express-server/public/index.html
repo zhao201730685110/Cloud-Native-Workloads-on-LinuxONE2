@@ -15,8 +15,8 @@
 	<style>
 		html 					{ overflow-y:scroll; }
 		body 					{ padding-top:50px; }
-		#todo-list 				{ margin-bottom:30px; }
-		#todo-form 	 			{ margin-bottom:50px; }
+		#todo-list 				{ margin-bottom:30px; font-size:30px;}
+		#todo-form 	 			{ margin-bottom:50px; font-size:30px;}
 	</style>
 
 	<!-- SPELLS -->
@@ -44,6 +44,7 @@
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
 						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+					
 						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.value }}
 					</label>
 				</div>
@@ -66,7 +67,7 @@
 
 
 
-						<input type="text" class="form-control " placeholder="todo's go here" ng-model="formData.value">
+						<input type="text" class="form-control input-lg text-center" placeholder="todo's go here" ng-model="formData.value">
 
 
 					</div>
