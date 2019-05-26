@@ -17,6 +17,9 @@
 		body 					{ padding-top:50px; }
 		#todo-list 				{ margin-bottom:30px; font-size:30px;}
 		#todo-form 	 			{ margin-bottom:50px; font-size:30px;}
+		.userlist{
+			background-color: lightgrey;
+		}
 	</style>
 
 	<!-- SPELLS -->
@@ -43,9 +46,11 @@
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
+						<div class="userlist">
 						<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.text }}
 					    <br />
-						<input type="checkbox" ng-click="deleteTodo(todo._id)">余额： {{ todo.value }}
+						余额： {{ todo.value }}
+					    </div>
 					</label>
 					<br />
 					<br />
@@ -65,11 +70,11 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="todo's go here" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户名称" ng-model="formData.text">
 
 
 
-						<input type="text" class="form-control input-lg text-center" placeholder="todo's go here" ng-model="formData.value">
+						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户存款数目" ng-model="formData.value">
 
 
 					</div>
