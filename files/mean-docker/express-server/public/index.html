@@ -18,7 +18,7 @@
 		#todo-list 				{ margin-bottom:30px; font-size:30px;}
 		#todo-form 	 			{ margin-bottom:50px; font-size:30px;}
 		.userlist{
-			background-color: lightgrey;
+			/* background-color: lightgrey; */
 		}
 	</style>
 
@@ -46,7 +46,7 @@
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
-						<div class="userlist">
+						<div class="userlist" class="alert alert-success" role="alert">
 						<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.text }}
 					    <br />
 						余额： {{ todo.value }}
