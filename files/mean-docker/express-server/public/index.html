@@ -15,8 +15,8 @@
 	<style>
 		html 					{ overflow-y:scroll; }
 		body 					{ padding-top:50px; }
-		#todo-list 				{ margin-bottom:30px; font-size:30px;}
-		#todo-form 	 			{ margin-bottom:50px; font-size:30px;}
+		#todo-list 				{ margin-bottom:30px; font-size:20px;}
+		#todo-form 	 			{ margin-bottom:50px; font-size:20px;}
 		/* .userlist{
 			background-color: lightgrey;
 		} */
@@ -36,7 +36,8 @@
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
-			<h1>Hi let us make an app for banks<span class="label label-info">{{ todos.length }}</span></h1>
+			<h1>Scut Bank</h1>
+                        <h2>银行账户有<span class="label label-info">{{ todos.length }}</span>人</h2>
 		</div>
 
 		<!-- TODO LIST -->
@@ -45,14 +46,19 @@
 
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
-					<label>
-						<div class="userlist" class="alert alert-success" role="alert">
-						<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.text }}
-					    <br />
-						余额： {{ todo.value }}
-					    </div>
-					</label>
-					<br />
+                                        <div class="panel panel-primary">
+                                          <div class="panel-heading">
+                                            <h3 class="panel-title">用户信息</h3>
+                                          </div>
+                                          
+                                        <div class="panel-body">
+				         	<label>
+					      	<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.text }}
+					        <br />
+						余额： {{ todo.value}}
+				        	</label>
+                                        </div>   
+                                        </div>
 					<br />
 				</div>
 
