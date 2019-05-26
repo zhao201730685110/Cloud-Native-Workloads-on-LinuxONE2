@@ -2,12 +2,17 @@ var mongoose = require('mongoose');
 
 // Define the schema
 module.exports = mongoose.model('Todo', {
-    text: {
+    name: {
         type: String,
         default: ''
     },
+    
+    id:{
+        type:String,
+        default:''
+    },
 
-    value: {
+    balance: {
         type: String,
         default: ''
     }

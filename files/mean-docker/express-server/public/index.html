@@ -53,9 +53,9 @@
                                           
                                         <div class="panel-body">
 				         	<label>
-					      	<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.text }}
+					      	<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.name }}
 					        <br />
-						余额： {{ todo.value}}
+						余额： {{ todo.balance}}
 				        	</label>
                                         </div>   
                                         </div>
@@ -76,11 +76,11 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户名称" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户名称" ng-model="formData.name">
 
+                        <input type="text" class="form-control input-lg text-center" placeholder="请输入用户ID" ng-model="formData.id">
 
-
-						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户存款数目" ng-model="formData.value">
+						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户存款数目" ng-model="formData.balance">
 
 
 					</div>
