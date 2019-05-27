@@ -73,7 +73,7 @@ module.exports = function (app) {
             },update:{
                 $set:{
                     name:req.body.name,
-                    id=req.body.id,
+                    id:req.body.id,
                     balance=req.body.balance
                 }
             },new:true},function(err,todo){
