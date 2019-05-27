@@ -59,10 +59,7 @@ module.exports = function (app) {
         Todo.findOne({
             _id: req.params.todo_id
         },function(err,todo){
-            if (err)
-                res.send(err);
-
-            getTodos(res);
+            res.json(todos);
         });
     });
 
