@@ -55,16 +55,16 @@ module.exports = function (app) {
         });
     });
 
-    // app.get('/api/todos/:todo_id',function(req,res){
-    //     Todo.findOne({
-    //         _id: req.params.todo_id
-    //     },function(err,todo){
-    //         if (err)
-    //             res.send(err);
+    app.get('/api/todos/:todo_id',function(req,res){
+        Todo.findOne({
+            _id: req.params.todo_id
+        },function(err,todo){
+            if (err)
+                res.send(err);
 
-    //         getTodos(res);
-    //     });
-    // });
+            getTodos(res);
+        });
+    });
 
     // app.put('/api/todos/:todo_id',function(req,res){
     //     var id=req.params.todo_id;

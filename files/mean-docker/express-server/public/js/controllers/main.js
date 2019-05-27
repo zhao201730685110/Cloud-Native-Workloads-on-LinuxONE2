@@ -53,12 +53,12 @@ angular.module('todoController', [])
 				});
 		};
 
-		// $scope.edit=function(id){
-		// 	console.log(id);
-        //     Todos.get(id).success(function(data){
-		// 		$scope.todos=data;
-		// 	});
-		// };
+		$scope.edit=function(id){
+			console.log(id);
+            Todos.get(id).success(function(data){
+				$scope.todos=data;
+			});
+		};
 
 		// $scope.update=function(){
 		// 	console.log($scope.formData._id);
