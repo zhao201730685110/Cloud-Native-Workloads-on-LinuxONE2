@@ -62,7 +62,7 @@ angular.module('todoController', [])
 
 		$scope.update=function(){
 			console.log($scope.formData.id);
-			Todos.put($scope.formData.id,$scope.amount).success(function(data){
+			Todos.put($scope.formData.id,{amount:$scope.amount}).success(function(data){
 				$scope.loading=false;
 				$scope.todos=data;
 			});
