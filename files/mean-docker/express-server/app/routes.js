@@ -55,34 +55,38 @@ module.exports = function (app) {
         });
     });
 
-    app.get('/api/todos/:todo_id',function(req,res){
-        Todo.findOne({
-            _id: req.params.todo_id
-        },function(err,todo){
-            res.json(todos);
-        });
-    });
-
-    // app.put('/api/todos/:todo_id',function(req,res){
-    //     var id=req.params.todo_id;
-    //     var name=req.body.name;
-    //     console.log(req.body.name);
-    //     Todo.findAndModify({
-    //         query:{
-    //             _id: req.params.todo_id
-    //         },update:{
-    //             $set:{
-    //                 name:req.body.name,
-    //                 id:req.body.id,
-    //                 balance:req.body.balance
-    //             }
-    //         },new:true},function(err,todo){
-    //             if (err)
-    //             res.send(err);
-
-    //             getTodos(res);
-    //             });
+    // app.get('/api/todos/:todo_id',function(req,res){
+    //     Todo.findOne({
+    //         _id: req.params.todo_id
+    //     },function(err,todo){
+    //         res.json(todos);
+    //     });
     // });
+
+    app.put('/api/todos/:todo_id',function(req,res){
+        var wherestr={'id':req.params.todo_id};
+        console.log(wherestr);
+        var updatestr={'balance':req.body.balance};
+        console.log(updatestr);
+        Todo.update(wherestr,updatestr
+            // {
+            // query:{
+            //     _id: req.params.todo_id
+            // },update:{
+            //     $set:{
+            //         name:req.body.name,
+            //         id:req.body.id,
+            //         balance:req.body.balance
+            //     }
+            // },new:true}
+
+            ,function(err,todo){
+                if (err)
+                res.send(err);
+
+                getTodos(res);
+                });
+    });
 
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {

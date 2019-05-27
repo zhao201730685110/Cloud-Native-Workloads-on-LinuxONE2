@@ -53,19 +53,20 @@ angular.module('todoController', [])
 				});
 		};
 
-		$scope.edit=function(id){
-			console.log(id);
-            Todos.get(id).success(function(data){
+		// $scope.edit=function(id){
+		// 	console.log(id);
+        //     Todos.get(id).success(function(data){
+		// 		$scope.todos=data;
+		// 	});
+		// };
+
+		$scope.update=function(){
+			console.log($scope.formData._id);
+			Todos.put($scope.formData._id,$scope.formData).success(function(data){
+				$scope.loading=false;
 				$scope.todos=data;
 			});
 		};
-
-		// $scope.update=function(){
-		// 	console.log($scope.formData._id);
-		// 	$http.put('api/todos/'+$scope.formData._id,$scope.formData).success(function(data){
-		// 		refresh();
-		// 	});
-		// };
 
 		// var refresh=function(){
 		// 	Todos.get().success(function(data){
