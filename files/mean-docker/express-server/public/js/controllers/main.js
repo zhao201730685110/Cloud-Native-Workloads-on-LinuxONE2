@@ -4,7 +4,7 @@ angular.module('todoController', [])
 	.controller('mainController', ['$scope','$http','Todos', function($scope, $http, Todos) {
 		$scope.formData = {};
 		$scope.loading = true;
-
+        $scope.amount;
 		$scope.formData1={};
 
 		// GET =====================================================================
@@ -62,7 +62,7 @@ angular.module('todoController', [])
 
 		$scope.update=function(){
 			console.log($scope.formData.id);
-			Todos.put($scope.formData.id,$scope.formData.balance).success(function(data){
+			Todos.put($scope.formData.id,$scope.amount).success(function(data){
 				$scope.loading=false;
 				$scope.todos=data;
 			});

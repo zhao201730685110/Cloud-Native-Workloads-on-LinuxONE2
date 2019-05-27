@@ -66,7 +66,7 @@ module.exports = function (app) {
     app.put('/api/todos/:todo_id',function(req,res){
         var wherestr={'_id':req.params.todo_id};
         console.log(wherestr);
-        var updatestr={'balance':req.body.balance};
+        var updatestr={'balance':req.body.amount};
         console.log(updatestr);
         Todo.update(wherestr,updatestr
             // {
