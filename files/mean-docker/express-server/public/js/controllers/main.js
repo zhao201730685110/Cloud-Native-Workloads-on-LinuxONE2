@@ -62,7 +62,7 @@ angular.module('todoController', [])
 
 		$scope.update=function(){
 			console.log($scope.formData._id);
-			Todos.put($scope.formData._id,$scope.formData).success(function(data){
+			$http.put('api/todos/'+$scope.formData._id,$scope.formData).success(function(data){
 				refresh();
 			});
 		};
