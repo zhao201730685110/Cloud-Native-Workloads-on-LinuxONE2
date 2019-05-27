@@ -77,7 +77,10 @@ module.exports = function (app) {
                     balance:req.body.balance
                 }
             },new:true},function(err,todo){
+                if (err)
                 res.send(err);
+
+                getTodos(res);
                 });
     });
 
