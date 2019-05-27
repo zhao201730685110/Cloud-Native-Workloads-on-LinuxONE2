@@ -61,8 +61,8 @@ angular.module('todoController', [])
 		// };
 
 		$scope.update=function(){
-			console.log($scope.formData._id);
-			Todos.put($scope.formData._id,$scope.formData).success(function(data){
+			console.log($scope.formData.id);
+			Todos.put($scope.formData.id,$scope.formData.balance).success(function(data){
 				$scope.loading=false;
 				$scope.todos=data;
 			});
