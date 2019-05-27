@@ -64,7 +64,7 @@ module.exports = function (app) {
     // });
 
     app.put('/api/todos/:todo_id',function(req,res){
-        var wherestr={'id':req.params.todo_id};
+        var wherestr={'_id':req.params.todo_id};
         console.log(wherestr);
         var updatestr={'balance':req.body.balance};
         console.log(updatestr);
