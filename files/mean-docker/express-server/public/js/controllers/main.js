@@ -54,8 +54,10 @@ angular.module('todoController', [])
 		};
 
 		$scope.edit=function(id){
+			$scope.loading=true;
 			console.log(id);
             Todos.get(id).success(function(data){
+				$scope.loading=false;
 				$scope.todos=data;
 			});
 		};
