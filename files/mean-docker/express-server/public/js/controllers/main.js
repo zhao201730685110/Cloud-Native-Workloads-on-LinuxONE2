@@ -12,6 +12,7 @@ angular.module('todoController', [])
 		// use the service to get all the todos
 		Todos.get()
 			.success(function(data) {
+				console.log("i got the data i requested")
 				$scope.todos = data;
 				$scope.loading = false;
 			});
@@ -19,6 +20,7 @@ angular.module('todoController', [])
 		// CREATE ==================================================================
 		// when submitting the add form, send the text to the node API
 		$scope.createTodo = function() {
+			console.log($scope.formData);
 
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen
@@ -30,6 +32,7 @@ angular.module('todoController', [])
 
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {
+						console.log(data);
 						$scope.loading = false;
 						$scope.formData = {}; // clear the form so our user is ready to enter another
 						$scope.todos = data; // assign our new list of todos
@@ -41,7 +44,7 @@ angular.module('todoController', [])
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {
 			$scope.loading = true;
-
+            console.log(id);
 			Todos.delete(id)
 				// if successful creation, call our get function to get all the new todos
 				.success(function(data) {
@@ -58,7 +61,7 @@ angular.module('todoController', [])
 		};
 
 		$scope.update=function(){
-			console.log(id);
+			console.log($scope.formData._id);
 			Todos.put($scope.formData._id,$scope.formData).success(function(data){
 				refresh();
 			});
@@ -66,6 +69,7 @@ angular.module('todoController', [])
 
 		var refresh=function(){
 			Todos.get().success(function(data){
+				console.log("i got the data i requested");
 				$scope.todos=data;
 				$scope.formData={};
 			})
