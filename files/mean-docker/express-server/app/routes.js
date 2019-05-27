@@ -55,37 +55,37 @@ module.exports = function (app) {
         });
     });
 
-    app.get('/api/todos/:todo_id',function(req,res){
-        Todo.findOne({
-            _id: req.params.todo_id
-        },function(err,todo){
-            if (err)
-                res.send(err);
+    // app.get('/api/todos/:todo_id',function(req,res){
+    //     Todo.findOne({
+    //         _id: req.params.todo_id
+    //     },function(err,todo){
+    //         if (err)
+    //             res.send(err);
 
-            getTodos(res);
-        });
-    });
+    //         getTodos(res);
+    //     });
+    // });
 
-    app.put('/api/todos/:todo_id',function(req,res){
-        var id=req.params.todo_id;
-        var name=req.body.name;
-        console.log(req.body.name);
-        Todo.findAndModify({
-            query:{
-                _id: req.params.todo_id
-            },update:{
-                $set:{
-                    name:req.body.name,
-                    id:req.body.id,
-                    balance:req.body.balance
-                }
-            },new:true},function(err,todo){
-                if (err)
-                res.send(err);
+    // app.put('/api/todos/:todo_id',function(req,res){
+    //     var id=req.params.todo_id;
+    //     var name=req.body.name;
+    //     console.log(req.body.name);
+    //     Todo.findAndModify({
+    //         query:{
+    //             _id: req.params.todo_id
+    //         },update:{
+    //             $set:{
+    //                 name:req.body.name,
+    //                 id:req.body.id,
+    //                 balance:req.body.balance
+    //             }
+    //         },new:true},function(err,todo){
+    //             if (err)
+    //             res.send(err);
 
-                getTodos(res);
-                });
-    });
+    //             getTodos(res);
+    //             });
+    // });
 
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {
