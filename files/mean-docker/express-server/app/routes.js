@@ -74,7 +74,7 @@ module.exports = function (app) {
                 $set:{
                     name:req.body.name,
                     id:req.body.id,
-                    balance=req.body.balance
+                    balance:req.body.balance
                 }
             },new:true},function(err,todo){
                 res.send(err);
