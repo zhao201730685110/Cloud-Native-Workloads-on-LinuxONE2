@@ -79,7 +79,7 @@ module.exports = function (app) {
                 });
     });
 
-    app.newput('/api/todos/:todoname',function(req,res){
+    app.put('/api/todos/:todoname',function(req,res){
         var wherestr={'name':req.params.todoname};
         var updatestr={'balance':req.body.amount};
         Todo.update(wherestr,updatestr,function(err,todo){

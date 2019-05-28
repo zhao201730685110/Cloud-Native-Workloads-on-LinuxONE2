@@ -119,7 +119,7 @@ angular.module('todoController', [])
 								console.log("receiving name:"+data[namex]["name"]);
 								console.log("origin balance:"+data[namex]["balance"]);
 								console.log("receiving amount"+$scope.formData.transfer);
-								Todos.newput(name,{amount:data[namex]["balance"]+parseFloat($scope.formData.transfer)}).success(function(data){
+								Todos.put(name,{amount:data[namex]["balance"]+parseFloat($scope.formData.transfer)}).success(function(data){
 									var msg=JSON.stringify(data);
 									console.log(msg);
 									$scope.loading=false;
