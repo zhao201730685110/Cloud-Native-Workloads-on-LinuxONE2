@@ -69,17 +69,6 @@ module.exports = function (app) {
         var updatestr={'balance':req.body.amount};
         console.log(updatestr);
         Todo.update(wherestr,updatestr
-            // {
-            // query:{
-            //     _id: req.params.todo_id
-            // },update:{
-            //     $set:{
-            //         name:req.body.name,
-            //         id:req.body.id,
-            //         balance:req.body.balance
-            //     }
-            // },new:true}
-
             ,function(err,todo){
                 if (err)
                 res.send(err);

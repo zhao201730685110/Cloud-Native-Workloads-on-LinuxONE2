@@ -60,7 +60,8 @@ angular.module('todoController', [])
 		// 	});
 		// };
 
-		$scope.update=function(id){
+		$scope.updateTodo=function(id){
+			$scope.loading = true;
 			console.log($scope.formData.id);
 			Todos.put(id,{amount:parseFloat($scope.amount)}).success(function(data){
 				var msg=JSON.stringify(data);
