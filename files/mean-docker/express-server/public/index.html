@@ -61,8 +61,11 @@
 						    余额： {{ todo.balance}}
 				        	</label>
 							</div>   
-							<button type="submit" class="btn btn-primary btn-lg" ng-click="depositTodo(todo._id)">Deposit</button>
-							<button type="submit" class="btn btn-primary btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>
+							<div>
+								<button type="submit" class="btn btn-primary btn-lg" ng-click="depositTodo(todo._id)">Deposit</button>
+							    <button type="submit" class="btn btn-primary btn-lg" ng-click="withdrawTodo(todo._id)">Withdraw</button>
+							    <button type="submit" class="btn btn-primary btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>
+							</div>
                         </div>
 					<br />
 				</div>
@@ -87,15 +90,13 @@
 
 						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户存款数目" ng-model="formData.balance">
 		
-						<input type="text" class="form-control input-lg text-center" placeholder="amount's go here" ng-model="amount">
+						<input type="text" class="form-control input-lg text-center" placeholder="请输入用户取款数目" ng-model="formData.withdraw">
             
 					</div>
 
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-					
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="edit(todo._id)">Edit</button>
 				</form>
 			</div>
 		</div>

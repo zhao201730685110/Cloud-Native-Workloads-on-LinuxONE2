@@ -5,7 +5,6 @@ angular.module('todoController', [])
 		$scope.formData = {};
 		$scope.loading = true;
         $scope.amount;
-		$scope.formData1={};
 
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
@@ -53,12 +52,6 @@ angular.module('todoController', [])
 				});
 		};
 
-		// $scope.edit=function(id){
-		// 	console.log(id);
-        //     Todos.get(id).success(function(data){
-		// 		$scope.todos=data;
-		// 	});
-		// };
 
 		$scope.depositTodo=function(id){
 			console.log($scope.formData.id);
@@ -74,11 +67,34 @@ angular.module('todoController', [])
 							var msg=JSON.stringify(data);
 							console.log(msg);
 							$scope.loading=false;
+							$scope.formData = {};
 							$scope.todos=data;
 						});
 					}
 				}
 			});	
+		}
+
+		$scope.withdrawTodo=function(id){
+			console.log($scope.formData.id);
+
+			Todos.get().success(function(data){
+				for(var idx in data){
+					if(data[idx]["_id"]==id){
+						$scope.loading=true;
+						console.log("matching id:"+data[idx]["_id"]);
+						console.log("origin balance:"+data[idx]["balance"]);
+						console.log("deleted balance:"+$scope.formData.withdraw);
+						Todos.put(id,{amount:data[idx]["balance"]-parseFloat($scope.formData.withdraw)}).success(function(data){
+							var msg=JSON.stringify(data);
+							console.log(msg);
+							$scope.loading=false;
+							$scope.formData = {};
+							$scope.todos=data;
+						})
+					}
+				}
+			})
 		}
 			
 

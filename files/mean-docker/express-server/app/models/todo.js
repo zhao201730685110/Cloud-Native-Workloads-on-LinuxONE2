@@ -15,6 +15,11 @@ module.exports = mongoose.model('Todo', {
     balance: {
         type: Number,
         default: 0.0
+    },
+
+    withdraw:{
+        type:Number,
+        default:0.0
     }
 
 

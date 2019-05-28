@@ -30,6 +30,7 @@ module.exports = function (app) {
             name: req.body.name,
             balance: req.body.balance,
             id:req.body.id,
+            withdraw:req.body.withdraw,
             done: false
         }, function (err, todo) {
             if (err)
