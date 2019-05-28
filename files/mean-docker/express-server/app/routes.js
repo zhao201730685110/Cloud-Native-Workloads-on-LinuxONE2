@@ -45,8 +45,6 @@ module.exports = function (app) {
 
     // delete a todo
     app.delete('/api/todos/:todo_id', function (req, res) {
-        var id=req.params.todo_id;
-        console.log(id);
         Todo.remove({
             _id: req.params.todo_id
         }, function (err, todo) {
@@ -79,8 +77,8 @@ module.exports = function (app) {
                 });
     });
 
-    app.put('/api/todos/:todoname',function(req,res){
-        var wherestr={'name':req.params.todoname};
+    app.put('/api/todos/:todo_name',function(req,res){
+        var wherestr={'name':req.params.todo_name};
         var updatestr={'balance':req.body.amount};
         Todo.update(wherestr,updatestr,function(err,todo){
             if(err)
