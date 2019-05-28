@@ -64,7 +64,11 @@
 							<div>
 								<button type="submit" class="btn btn-primary btn-lg" ng-click="depositTodo(todo._id)">Deposit</button>
 							    <button type="submit" class="btn btn-primary btn-lg" ng-click="withdrawTodo(todo._id)">Withdraw</button>
-							    <button type="submit" class="btn btn-primary btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>
+								<button type="submit" class="btn btn-primary btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>
+								<br />
+								<input type="text" class="form-control input-lg text-center" placeholder="请输入收款人的姓名" ng-model="transferName">
+								<input type="text" class="form-control input-lg text-center" placeholder="请输入转账金额" ng-model="formData.transfer">
+								<button type="submit" class="btn btn-primary btn-lg" ng-click="transferTodo(todo._id,transferName)">Transfer</button>
 							</div>
                         </div>
 					<br />

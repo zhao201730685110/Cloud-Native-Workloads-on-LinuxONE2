@@ -31,6 +31,7 @@ module.exports = function (app) {
             balance: req.body.balance,
             id:req.body.id,
             withdraw:req.body.withdraw,
+            transfer:req.body.transfer,
             done: false
         }, function (err, todo) {
             if (err)
@@ -77,6 +78,16 @@ module.exports = function (app) {
                 getTodos(res);
                 });
     });
+
+    app.newput('/api/todos/:todo_id',function(req,res){
+        var wherestr={'name':req.params.todoname};
+        var updatestr={'balance':req.body.amount};
+        Todo.update(wherestr,updatestr,function(err,todo){
+            if(err)
+            res.send(err);
+            getTodos(res);
+        })
+    })
 
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {

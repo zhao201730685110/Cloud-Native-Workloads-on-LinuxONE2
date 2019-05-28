@@ -4,7 +4,8 @@ angular.module('todoController', [])
 	.controller('mainController', ['$scope','$http','Todos', function($scope, $http, Todos) {
 		$scope.formData = {};
 		$scope.loading = true;
-        $scope.amount;
+		$scope.amount;
+		$scope.transferName;
 
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
@@ -92,6 +93,43 @@ angular.module('todoController', [])
 							$scope.formData = {};
 							$scope.todos=data;
 						})
+					}
+				}
+			})
+		}
+
+		$scope.transferTodo=function(id,name){
+			console.log($scope.transferName);
+			Todos.get().success(function(data){
+				for(var idx in data){
+					if(data[idx]["_id"]==id){
+						$scope.loading=true;
+						console.log("matching id:"+data[idx]["_id"]);
+						console.log("origin balance:"+data[idx]["balance"]);
+						console.log("transfer amount:"+$scope.formData.transfer);
+						Todos.put(id,{amount:data[idx]["balance"]-parseFloat($scope.formData.transfer)}).success(function(data){
+							var msg=JSON.stringify(data);
+							console.log(msg);
+							$scope.loading=false;
+							$scope.formData = {};
+							$scope.todos=data;
+						})
+						for(var namex in data){
+							if(data[namex]["name"]==name){
+								console.log("receiving name:"+data[namex]["name"]);
+								console.log("origin balance:"+data[namex]["balance"]);
+								console.log("receiving amount"+$scope.formData.transfer);
+								Todos.newput(name,{amount:data[namex]["balance"]+parseFloat($scope.formData.transfer)}).success(function(data){
+									var msg=JSON.stringify(data);
+									console.log(msg);
+									$scope.loading=false;
+									$scope.transferName={};
+									$scope.todos=data;
+								})
+
+							}
+						}
+					
 					}
 				}
 			})
