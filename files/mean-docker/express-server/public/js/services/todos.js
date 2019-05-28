@@ -20,9 +20,9 @@ angular.module('todoService', [])
 				return $http.put('/api/todos/'+id,todoData);
 			},
 
-			put: function(name,todoData){
-				return $http.put('/api/todos/'+name,todoData);
-			}
+			// put: function(name,todoData){
+			// 	return $http.put('/api/todos/'+name,todoData);
+			// }
 
 		}
 	}]);

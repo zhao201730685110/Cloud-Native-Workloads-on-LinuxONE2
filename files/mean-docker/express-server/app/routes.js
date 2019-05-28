@@ -77,15 +77,15 @@ module.exports = function (app) {
                 });
     });
 
-    app.put('/api/todos/:todo_name',function(req,res){
-        var wherestr={'name':req.params.todo_name};
-        var updatestr={'balance':req.body.amount};
-        Todo.update(wherestr,updatestr,function(err,todo){
-            if(err)
-            res.send(err);
-            getTodos(res);
-        })
-    })
+    // app.put('/api/todos/:todo_name',function(req,res){
+    //     var wherestr={'name':req.params.todo_name};
+    //     var updatestr={'balance':req.body.amount};
+    //     Todo.update(wherestr,updatestr,function(err,todo){
+    //         if(err)
+    //         res.send(err);
+    //         getTodos(res);
+    //     })
+    // })
 
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {
