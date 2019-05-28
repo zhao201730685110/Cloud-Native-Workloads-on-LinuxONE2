@@ -60,16 +60,22 @@ angular.module('todoController', [])
 		// 	});
 		// };
 
-		$scope.updateTodo=function(id){
-			$scope.loading = true;
+		$scope.depositTodo=function(id){
 			console.log($scope.formData.id);
-			Todos.put(id,{amount:parseFloat($scope.amount)}).success(function(data){
-				var msg=JSON.stringify(data);
-				console.log(msg);
-				$scope.loading=false;
-				$scope.todos=data;
-			});
-		};
+			
+			for(var idx in data){
+				if(data[idx]["_id"]==id){
+					$scope.loading = true;
+					Todos.put(id,{amount:data[idx]["balance"]+parseFloat($scope.amount)}).success(function(data){
+						var msg=JSON.stringify(data);
+						console.log(msg);
+						$scope.loading=false;
+						$scope.todos=data;
+					});
+				}
+			}
+		}
+			
 
 		// var refresh=function(){
 		// 	Todos.get().success(function(data){
