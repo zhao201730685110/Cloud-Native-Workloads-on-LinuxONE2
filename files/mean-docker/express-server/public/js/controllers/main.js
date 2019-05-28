@@ -123,7 +123,7 @@ angular.module('todoController', [])
 									var msg=JSON.stringify(data);
 									console.log(msg);
 									$scope.loading=false;
-									$scope.transferName={};
+									$scope.transferName="";
 									$scope.todos=data;
 								})
 
