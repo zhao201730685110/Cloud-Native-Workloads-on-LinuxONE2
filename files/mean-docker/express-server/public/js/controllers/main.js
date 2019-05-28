@@ -67,7 +67,10 @@ angular.module('todoController', [])
 				for(var idx in data){
 					if(data[idx]["_id"]==id){
 						$scope.loading = true;
-						Todos.put(id,{amount:data[idx]["balance"]+parseFloat($scope.amount)}).success(function(data){
+						console.log("matching id:"+data[idx]["_id"]);
+						console.log("origin balance:"+data[idx]["balance"]);
+						console.log("added balance:"+$scope.balance);
+						Todos.put(id,{amount:data[idx]["balance"]+parseFloat($scope.balance)}).success(function(data){
 							var msg=JSON.stringify(data);
 							console.log(msg);
 							$scope.loading=false;
