@@ -20,6 +20,11 @@ module.exports = mongoose.model('Todo', {
     withdraw:{
         type:Number,
         default:0.0
+    },
+
+    transfer:{
+        type:Number,
+        default:0.0
     }
 
 

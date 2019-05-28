@@ -18,6 +18,11 @@ angular.module('todoService', [])
 			// }
 			put : function(id,todoData){
 				return $http.put('/api/todos/'+id,todoData);
+			},
+
+			newput: function(name,todoData){
+				return $http.put('/api/todos/'+name,todoData);
 			}
+
 		}
 	}]);
