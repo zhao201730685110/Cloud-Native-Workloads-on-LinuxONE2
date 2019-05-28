@@ -46,20 +46,22 @@
 
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
-                                        <div class="panel panel-primary">
-                                          <div class="panel-heading">
-                                            <h3 class="panel-title">用户信息</h3>
-                                          </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                            <h3 class="panel-title">用户信息</h3>
+                            </div>
                                           
-                                        <div class="panel-body">
+                            <div class="panel-body">
 				         	<label>
 					      	<input type="checkbox" ng-click="deleteTodo(todo._id)">姓名： {{ todo.name }}
 							<br />
-						ID：{{todo.id}}
-						余额： {{ todo.balance}}
+							ID：{{todo.id}}
+							<br />
+						    余额： {{ todo.balance}}
 				        	</label>
-                                        </div>   
-                                        </div>
+							</div>   
+							<button type="submit" class="btn btn-primary btn-lg" ng-click="updateTodo(todo._id)">Update</button>
+                        </div>
 					<br />
 				</div>
 
@@ -90,7 +92,7 @@
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="updateTodo(todo._id)">Update</button>
+					
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="edit(todo._id)">Edit</button>
 				</form>
 			</div>
