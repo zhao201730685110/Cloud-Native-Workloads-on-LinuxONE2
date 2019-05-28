@@ -21,7 +21,7 @@ angular.module('todoService', [])
 			},
 
 			newput: function(name,todoData){
-				return $http.put('/api/todos/'+name,todoData);
+				return $http.newput('/api/todos/'+name,todoData);
 			}
 
 		}
